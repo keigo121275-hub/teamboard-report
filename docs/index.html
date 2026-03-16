@@ -1,1 +1,228 @@
-<html><body>初期ページ</body></html>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TeamBoard レポート 2026-03-16</title>
+<style>
+  :root { --bg:#0d0f1a; --surface:#161929; --surface2:#1e2235; --border:#2e3455; --text:#e8eaf6; --muted:#7b84b8; --accent:#6c7bff; --red:#ff5252; --yellow:#ffcc00; --green:#22c55e; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--text); font-family:'Segoe UI','Hiragino Sans','Noto Sans JP',sans-serif; padding:20px; min-height:100vh; }
+  .container { max-width:900px; margin:0 auto; }
+  h1 { font-size:1.4rem; font-weight:800; margin-bottom:4px; }
+  .date { color:var(--muted); font-size:.85rem; margin-bottom:24px; }
+  .summary-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:12px; margin-bottom:28px; }
+  .summary-card { background:var(--surface); border-radius:12px; padding:16px; text-align:center; border:1px solid var(--border); }
+  .summary-num { font-size:2rem; font-weight:800; }
+  .summary-label { font-size:.75rem; color:var(--muted); margin-top:4px; }
+  .red-num { color:var(--red); } .yellow-num { color:var(--yellow); } .green-num { color:var(--green); } .accent-num { color:var(--accent); }
+  h2 { font-size:1rem; font-weight:700; margin-bottom:14px; padding-bottom:6px; border-bottom:1px solid var(--border); }
+  section { margin-bottom:32px; }
+  .task-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:12px; }
+  .task-card { background:var(--surface); border-radius:12px; padding:16px; border:1px solid var(--border); border-left:3px solid var(--border); }
+  .task-card.red { border-left-color:var(--red); } .task-card.yellow { border-left-color:var(--yellow); } .task-card.green { border-left-color:var(--green); }
+  .task-sig { font-size:.72rem; font-weight:700; margin-bottom:6px; }
+  .task-title { font-size:.92rem; font-weight:700; margin-bottom:8px; line-height:1.4; }
+  .task-meta { font-size:.75rem; color:var(--muted); display:flex; flex-direction:column; gap:3px; margin-bottom:10px; }
+  .prog-row { display:flex; align-items:center; gap:8px; }
+  .prog-bar { flex:1; height:5px; background:var(--surface2); border-radius:99px; overflow:hidden; }
+  .prog-fill { height:100%; border-radius:99px; transition:width .3s; }
+  .prog-pct { font-size:.75rem; font-weight:700; min-width:32px; text-align:right; }
+  .sub-info { font-size:.72rem; color:var(--muted); margin-top:6px; }
+  .members-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:10px; }
+  .member-card { background:var(--surface); border-radius:10px; padding:14px; border:1px solid var(--border); }
+  .member-name { font-weight:700; font-size:.9rem; margin-bottom:8px; }
+  .member-stats { display:flex; flex-wrap:wrap; gap:5px; }
+  .badge { font-size:.72rem; padding:2px 8px; border-radius:99px; font-weight:600; }
+  .badge.red { background:rgba(255,82,82,.15); color:var(--red); }
+  .badge.yellow { background:rgba(255,204,0,.15); color:var(--yellow); }
+  .badge.green { background:rgba(34,197,94,.15); color:var(--green); }
+  .badge.gray { background:var(--surface2); color:var(--muted); }
+  .action-list { list-style:none; display:flex; flex-direction:column; gap:10px; }
+  .action-list li { background:var(--surface); border-radius:8px; padding:12px 16px; border-left:3px solid var(--accent); font-size:.88rem; line-height:1.6; }
+  .footer { text-align:center; color:var(--muted); font-size:.75rem; margin-top:40px; padding-top:20px; border-top:1px solid var(--border); }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>📊 TeamBoard 日次レポート</h1>
+  <div class="date">2026年3月16日月曜日</div>
+
+  <div class="summary-grid">
+    <div class="summary-card"><div class="summary-num accent-num">8</div><div class="summary-label">進行中</div></div>
+    <div class="summary-card"><div class="summary-num red-num">2</div><div class="summary-label">🔴 危険・超過</div></div>
+    <div class="summary-card"><div class="summary-num yellow-num">3</div><div class="summary-label">🟡 注意</div></div>
+    <div class="summary-card"><div class="summary-num green-num">3</div><div class="summary-label">🟢 順調</div></div>
+    <div class="summary-card"><div class="summary-num" style="color:var(--muted)">0</div><div class="summary-label">✅ 完了</div></div>
+  </div>
+
+  
+  <section>
+    <h2>🔴🟡 要注意タスク</h2>
+    <div class="task-grid">
+      <div class="task-title">4月ダイエットセミナーについて</div>
+      <div class="task-title">申し込んだ方へリマインド配信の構成</div>
+      <div class="task-title">3/29 協会員さんへ宣伝するパーティーのバナーと文章考案</div>
+      <div class="task-title">事前予約CPバナー依頼</div>
+      <div class="task-title">3/27に配信する4月養成講座セミナー煽り配信について</div></div>
+  </section>
+
+  <section>
+    <h2>📋 全タスク一覧</h2>
+    <div class="task-grid">
+    <div class="task-card yellow">
+      <div class="task-sig">🟡 注意</div>
+      <div class="task-title">3/29 協会員さんへ宣伝するパーティーのバナーと文章考案</div>
+      <div class="task-meta">
+        <span>👤 太田佳吾</span>
+        <span>📅 2026-03-18 (あと2日)</span>
+      </div>
+      <div class="prog-row">
+        <div class="prog-bar"><div class="prog-fill" style="width:0%;background:#ffcc00"></div></div>
+        <span class="prog-pct">0%</span>
+      </div>
+      
+    </div>
+    <div class="task-card yellow">
+      <div class="task-sig">🟡 注意</div>
+      <div class="task-title">事前予約CPバナー依頼</div>
+      <div class="task-meta">
+        <span>👤 みお</span>
+        <span>📅 2026-03-19 (あと3日)</span>
+      </div>
+      <div class="prog-row">
+        <div class="prog-bar"><div class="prog-fill" style="width:0%;background:#ffcc00"></div></div>
+        <span class="prog-pct">0%</span>
+      </div>
+      
+    </div>
+    <div class="task-card yellow">
+      <div class="task-sig">🟡 注意</div>
+      <div class="task-title">3/27に配信する4月養成講座セミナー煽り配信について</div>
+      <div class="task-meta">
+        <span>👤 太田佳吾</span>
+        <span>📅 2026-03-18 (あと2日)</span>
+      </div>
+      <div class="prog-row">
+        <div class="prog-bar"><div class="prog-fill" style="width:0%;background:#ffcc00"></div></div>
+        <span class="prog-pct">0%</span>
+      </div>
+      
+    </div>
+    <div class="task-card green">
+      <div class="task-sig">🟢 順調</div>
+      <div class="task-title">在宅ワーク動画編集</div>
+      <div class="task-meta">
+        <span>👤 miki</span>
+        <span>📅 2026-03-29 (あと13日)</span>
+      </div>
+      <div class="prog-row">
+        <div class="prog-bar"><div class="prog-fill" style="width:1%;background:#22c55e"></div></div>
+        <span class="prog-pct">1%</span>
+      </div>
+      <div class="sub-info">1/5 サブタスク完了</div>
+    </div>
+    <div class="task-card red">
+      <div class="task-sig">🔴 危険</div>
+      <div class="task-title">4月ダイエットセミナーについて</div>
+      <div class="task-meta">
+        <span>👤 太田佳吾・みお</span>
+        <span>📅 2026-03-17 (あと1日)</span>
+      </div>
+      <div class="prog-row">
+        <div class="prog-bar"><div class="prog-fill" style="width:0%;background:#ff5252"></div></div>
+        <span class="prog-pct">0%</span>
+      </div>
+      <div class="sub-info">0/2 サブタスク完了</div>
+    </div>
+    <div class="task-card green">
+      <div class="task-sig">🟢 順調</div>
+      <div class="task-title">養成講座プレゼントLP作成</div>
+      <div class="task-meta">
+        <span>👤 Hayase Natsumi</span>
+        <span>📅 2026-03-23 (あと7日)</span>
+      </div>
+      <div class="prog-row">
+        <div class="prog-bar"><div class="prog-fill" style="width:0%;background:#22c55e"></div></div>
+        <span class="prog-pct">0%</span>
+      </div>
+      
+    </div>
+    <div class="task-card red">
+      <div class="task-sig">🔴 危険</div>
+      <div class="task-title">申し込んだ方へリマインド配信の構成</div>
+      <div class="task-meta">
+        <span>👤 Hayase Natsumi</span>
+        <span>📅 2026-03-16 (本日期限)</span>
+      </div>
+      <div class="prog-row">
+        <div class="prog-bar"><div class="prog-fill" style="width:0%;background:#ff5252"></div></div>
+        <span class="prog-pct">0%</span>
+      </div>
+      
+    </div>
+    <div class="task-card green">
+      <div class="task-sig">🟢 順調</div>
+      <div class="task-title">書籍配信文作成</div>
+      <div class="task-meta">
+        <span>👤 みお</span>
+        <span>📅 2026-03-26 (あと10日)</span>
+      </div>
+      <div class="prog-row">
+        <div class="prog-bar"><div class="prog-fill" style="width:0%;background:#22c55e"></div></div>
+        <span class="prog-pct">0%</span>
+      </div>
+      
+    </div></div>
+  </section>
+
+  <section>
+    <h2>👥 担当者別状況</h2>
+    <div class="members-grid">
+    <div class="member-card">
+      <div class="member-name">太田佳吾</div>
+      <div class="member-stats">
+        <span class="badge red">🔴 1</span>
+        <span class="badge yellow">🟡 2</span>
+        
+        <span class="badge gray">計 3件</span>
+      </div>
+    </div>
+    <div class="member-card">
+      <div class="member-name">みお</div>
+      <div class="member-stats">
+        <span class="badge red">🔴 1</span>
+        <span class="badge yellow">🟡 1</span>
+        <span class="badge green">🟢 1</span>
+        <span class="badge gray">計 3件</span>
+      </div>
+    </div>
+    <div class="member-card">
+      <div class="member-name">miki</div>
+      <div class="member-stats">
+        
+        
+        <span class="badge green">🟢 1</span>
+        <span class="badge gray">計 1件</span>
+      </div>
+    </div>
+    <div class="member-card">
+      <div class="member-name">Hayase Natsumi</div>
+      <div class="member-stats">
+        <span class="badge red">🔴 1</span>
+        
+        <span class="badge green">🟢 1</span>
+        <span class="badge gray">計 2件</span>
+      </div>
+    </div></div>
+  </section>
+
+  <section>
+    <h2>⚡ 今すぐやるべきこと</h2>
+    <ul class="action-list"><li>太田佳吾: 4月ダイエットセミナーについてを2026-03-17までに完了させる</li><li>Hayase Natsumi: 申し込んだ方へリマインド配信の構成を2026-03-16までに完了させる</li><li>太田佳吾: 3/29 協会員さんへ宣伝するパーティーのバナーと文章考案を2026-03-18までに完了させる</li><li>太田佳吾: 3/27に配信する4月養成講座セミナー煽り配信についてを2026-03-18までに完了させる</li><li>みお: 事前予約CPバナー依頼を2026-03-19までに完了させる</li></ul>
+  </section>
+
+  <div class="footer">TeamBoard 自動レポート・生成日時: 2026/3/16 8:59:00</div>
+</div>
+</body>
+</html>
