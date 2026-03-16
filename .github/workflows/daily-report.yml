@@ -1,0 +1,31 @@
+name: TeamBoard 日次レポート
+
+on:
+  schedule:
+    # 毎朝8:00 JST（= 前日 23:00 UTC）月〜金
+    - cron: '0 23 * * 0-4'
+  workflow_dispatch:  # 手動実行ボタン（テスト用）
+
+jobs:
+  send-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Node.js セットアップ
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 依存パッケージをインストール
+        run: npm install
+
+      - name: レポートを生成して Chatwork に送信
+        run: node report.js
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          CHATWORK_API_TOKEN: ${{ secrets.CHATWORK_API_TOKEN }}
+          CHATWORK_ROOM_ID: ${{ secrets.CHATWORK_ROOM_ID }}
